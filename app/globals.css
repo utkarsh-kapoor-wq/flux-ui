@@ -124,3 +124,27 @@
     @apply bg-background text-foreground font-lexend;
   }
 }
+
+
+.grid-bottle-wrapper {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-bottle-inner {
+  height: 100%;
+  transform: none !important;
+}
+
+.grid-bottle-img {
+  height: 70vh;
+  width: auto;
+  object-fit: contain;
+  transform: none !important;
+}
+
+.font-godiva {
+  font-family: var(--font-godiva);
+}

@@ -15,19 +15,13 @@ export function initHeroAnimations(refs) {
     heading2Ref,
     rightText2Ref,
     leftText2Ref,
-    col1Ref,
-    col2Ref,
-    col3Ref,
-    col4Ref,
-    col5Ref,
-    col6Ref,
   } = refs;
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: sectionRef.current,
       start: "top top",
-      end: "+=200%",
+      end: "+=300%",
       scrub: true,
       pin: true,
     },
@@ -107,18 +101,19 @@ export function initHeroAnimations(refs) {
     "<10%"
   );
 
-  tl.to(bottle2Ref.current, { rotate: -18, x: -100, ease: "none" }).to(
+  tl.to(bottle2Ref.current, { rotate: -18, x: -100, ease: "none" });
+  tl.to(
     [heading2Ref.current, rightText2Ref.current, leftText2Ref.current],
     {
       opacity: 0,
       y: -100,
       ease: "none",
-    }
+    },
+    "<"
   );
 
   return tl;
 }
-
 export function initGridAnimations(refs) {
   const {
     gridSectionRef,
@@ -128,33 +123,49 @@ export function initGridAnimations(refs) {
     col4Ref,
     col5Ref,
     col6Ref,
+    rest1,
+    rest2,
   } = refs;
 
   const gridTl = gsap.timeline({
     scrollTrigger: {
       trigger: gridSectionRef.current,
-      start: "top bottom", 
-      end: "top top", 
+      start: "top top",
+      end: "+=800%",
       scrub: true,
+      pin: true,
     },
   });
 
-  // Reveal grid
-  gridTl.fromTo("#grid", { opacity: 0 }, { opacity: 1, ease: "none" });
+  gridTl
+    .set("#grid", { opacity: 1 })
+    .to([col1Ref.current, col3Ref.current, col5Ref.current], {
+      y: "-200vh",
+      ease: "none",
+    });
 
-  // odd col
-  gridTl.fromTo(
-    [col1Ref.current, col3Ref.current, col5Ref.current],
-    { y: 200 },
-    { y: 0, ease: "none" },
+  gridTl.to(
+    [col2Ref.current, col4Ref.current, col6Ref.current],
+    {
+      y: "39vh",
+      ease: "none",
+    },
     "<"
   );
 
-  // even col
-  gridTl.fromTo(
-    [col2Ref.current, col4Ref.current, col6Ref.current],
-    { y: -200 },
-    { y: 0, ease: "none" },
+  gridTl.to(".rest1", {
+    y: "-100vh",
+    opacity: 0,
+    ease: "none",
+  });
+
+  gridTl.to(
+    ".rest2",
+    {
+      y: "100vh",
+      opacity: 0,
+      ease: "none",
+    },
     "<"
   );
 
