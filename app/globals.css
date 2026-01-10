@@ -126,23 +126,26 @@
 }
 
 
-.grid-bottle-wrapper {
-  height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .grid-bottle-inner {
   height: 100%;
   transform: none !important;
 }
 
+.grid-bottle-wrapper {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
 .grid-bottle-img {
-  height: 70vh;
+  height: 60vh;
   width: auto;
   object-fit: contain;
   transform: none !important;
+  will-change: auto;
 }
 
 .font-godiva {

@@ -10,6 +10,8 @@ export default function Hero() {
     const bottleRef = useRef(null);
     const bottle1Ref = useRef(null);
     const bottle2Ref = useRef(null);
+    const bg1Ref = useRef(null);
+    const bg2Ref = useRef(null);
     const headingRef = useRef(null);
     const rightTextRef = useRef(null);
     const leftTextRef = useRef(null);
@@ -30,6 +32,8 @@ export default function Hero() {
             bottleRef,
             bottle1Ref,
             bottle2Ref,
+            bg1Ref,
+            bg2Ref,
             headingRef,
             rightTextRef,
             leftTextRef,
@@ -54,20 +58,47 @@ export default function Hero() {
     return (
         <>
             <section ref={sectionRef} className="relative h-screen w-full bg-white overflow-hidden">
+                {/* Backgrounds */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <div ref={bg1Ref} className="absolute left-[-20%] md:left-[6%] top-[45%] md:top-[30%] inset-0 opacity-0">
+                        <Image
+                            src="/first_bg.png"
+                            alt=""
+                            priority
+                            className="object-cover select-none"
+                            height={900}
+                            width={1000}
+                        />
+                    </div>
+                    <div ref={bg2Ref} className="absolute right-[1%] md:right-[3%] top-[45%] opacity-0">
+                        <Image
+                            src="/second_bg.png"
+                            alt=""
+                            height={900}
+                            width={1000}
+                            priority
+                            className="object-cover select-none"
+                        />
+                    </div>
+                </div>
+
                 {/* Heading */}
-                <h1 ref={headingRef} className="absolute top-[15%] right-[8%] md:right-[18%] text-[24px] md:text-[36px] font-medium tracking-wide text-black max-w-[420px] text-right">
+                <h1 ref={headingRef} className="absolute top-[15%] right-[8%] md:right-[18%] text-[24px] md:text-[36px] font-medium tracking-wide text-black max-w-[420px] text-right z-10">
                     Unlock the essence of an ancient craft
                 </h1>
 
                 {/* Right paragraph */}
-                <p ref={rightTextRef} className="absolute top-[35%] right-[8%] md:right-[15%] text-[12px] md:text-[14px] text-gray-600 max-w-[260px] text-right leading-relaxed">
+                <p ref={rightTextRef} className="absolute top-[35%] right-[8%] md:right-[15%] text-[12px] md:text-[14px] text-gray-600 max-w-[260px] text-right leading-relaxed z-10">
                     We got our hands on the all natural finest ingredients that would recreate the magic of Kombucha
                 </p>
 
                 {/* Left bottom text */}
-                <p ref={leftTextRef} className="absolute bottom-[10%] md:bottom-[18%] left-[8%] text-[12px] md:text-[14px] text-gray-600 max-w-[200px] leading-relaxed">
+                <p ref={leftTextRef} className="absolute bottom-[10%] md:bottom-[18%] left-[8%] text-[12px] md:text-[14px] text-gray-600 max-w-[200px] leading-relaxed z-10">
                     Crafted with care and brewed to perfection
                 </p>
+
+
+
 
 
                 {/* second text */}
@@ -84,14 +115,17 @@ export default function Hero() {
                 </p>
 
                 {/* Bottle */}
-                <div className="h-full w-full flex items-center justify-center">
-                    <div ref={bottleRef} className="relative w-[55vw] max-w-[420px] sm:w-[45vw] md:w-[360px] lg:w-[420px]">
+                <div className="h-full w-full flex items-center justify-center relative z-10">
+                    <div
+                        ref={bottleRef}
+                        className="relative w-[70vw] max-w-[560px] sm:w-[60vw] md:w-[460px] lg:w-[560px] scale-[2.2]"
+                    >
                         <div ref={bottle1Ref} className="absolute inset-0">
                             <Image
                                 src="/1.png"
                                 alt="Bottle 1"
                                 width={500}
-                                height={1200}
+                                height={1500}
                                 priority
                                 className="w-full h-auto select-none"
                             />
@@ -112,11 +146,11 @@ export default function Hero() {
             {/* Grid Section */}
             <section
                 ref={gridSectionRef}
-                className="relative h-screen w-full bg-white overflow-hidden flex items-center"
+                className="relative h-screen w-full bg-white overflow-hidden flex items-center max-md:hidden"
             >
                 <div
                     id="grid"
-                    className="grid grid-flow-col grid-cols-6 w-full max-w-[1600px] mx-auto px-4  h-screen"  >
+                    className="grid grid-flow-col grid-cols-6 w-full w-[90vw] mx-auto px-4  h-screen max-md:hidden"  >
 
                     {/* COLUMN 1 */}
                     <div ref={col1Ref} className="flex flex-col items-center justify-between h-[80vh]">
@@ -168,15 +202,15 @@ export default function Hero() {
 
                     {/* COLUMN 4 */}
                     <div ref={col4Ref} className="flex flex-col items-center justify-between h-[80vh]">
-                        <span className="font-godiva leading-none text-[clamp(48px,8vw,140px)] overline decoration-14">O</span>
+                        <span className="font-godiva leading-none text-[clamp(48px,8vw,140px)] underline underline-offset-4">O</span>
                         <div className="rest2">
                             <Image src="/4.png" alt="Bottle" width={500} height={1200} className="grid-bottle-img" priority={false} />
                         </div>
-                        <span className="rest2 font-godiva leading-none text-[clamp(48px,8vw,140px)] overline decoration-14">O</span>
+                        <span className="rest2 font-godiva leading-none text-[clamp(48px,8vw,140px)] underline underline-offset-4">O</span>
                         <div className="rest2">
                             <Image src="/4.png" alt="Bottle" width={500} height={1200} className="grid-bottle-img" priority={false} />
                         </div>
-                        <span className="rest2 font-godiva leading-none text-[clamp(48px,8vw,140px)] overline decoration-14">O</span>
+                        <span className="rest2 font-godiva leading-none text-[clamp(48px,8vw,140px)] underline underline-offset-4">O</span>
                         <div className="rest2">
                             <Image src="/4.png" alt="Bottle" width={500} height={1200} className="grid-bottle-img" priority={false} />
                         </div>

@@ -9,6 +9,8 @@ export function initHeroAnimations(refs) {
     bottleRef,
     bottle1Ref,
     bottle2Ref,
+    bg1Ref,
+    bg2Ref,
     headingRef,
     rightTextRef,
     leftTextRef,
@@ -27,6 +29,7 @@ export function initHeroAnimations(refs) {
     },
   });
 
+
   // Bottle animation
   // Bottle scale (first phase)
   tl.fromTo(
@@ -34,6 +37,12 @@ export function initHeroAnimations(refs) {
     { rotate: 0, scale: 1 },
     { rotate: -12, scale: 1.5, x: -100, ease: "none" }
   );
+  tl.to(bg1Ref.current , {
+    rotate: -19,
+    xPercent : 10,
+    opacity : 1 ,
+    ease : "none"
+  },"<")
 
   // Heading from RIGHT
   tl.fromTo(
@@ -51,6 +60,7 @@ export function initHeroAnimations(refs) {
     0.05
   );
 
+  
   // Left bottom text from LEFT
   tl.fromTo(
     leftTextRef.current,
@@ -60,8 +70,20 @@ export function initHeroAnimations(refs) {
   );
 
   // Bottle rotate to RIGHT (second phase)
-  tl.to(bottleRef.current, { duration: 0.5 }, ">");
+  tl.to(bottleRef.current, { duration:0.75 }, ">");
   tl.to(bottleRef.current, { rotate: 18, x: 100, ease: "none" }, ">");
+  
+  // Background swap: fade out first_bg and fade in second_bg
+  tl.to(bg1Ref.current , {
+    opacity : 0 , 
+    xPercent : -10,
+    ease :"none"
+  },"<").to(bg2Ref.current , { 
+    opacity : 1 , 
+    xPercent : -20 , 
+    ease : "none"
+  },"<")
+ 
   tl.to(bottle1Ref.current, { opacity: 0, ease: "out" }, "<30%");
   tl.to(bottle2Ref.current, { opacity: 1, ease: "out" }, "<");
 
@@ -137,33 +159,32 @@ export function initGridAnimations(refs) {
     },
   });
 
-  gridTl
-    .set("#grid", { opacity: 1 })
-    .to([col1Ref.current, col3Ref.current, col5Ref.current], {
-      y: "-200vh",
-      ease: "none",
-    });
+  gridTl.to([col1Ref.current, col3Ref.current, col5Ref.current], {
+    yPercent: -210,
+    ease: "none",
+  });
 
+  // EVEN columns go DOWN
   gridTl.to(
     [col2Ref.current, col4Ref.current, col6Ref.current],
     {
-      y: "39vh",
+      yPercent: 51,
       ease: "none",
     },
     "<"
   );
 
   gridTl.to(".rest1", {
-    y: "-100vh",
     opacity: 0,
+    yPercent: -50,
     ease: "none",
   });
 
   gridTl.to(
     ".rest2",
     {
-      y: "100vh",
       opacity: 0,
+      yPercent: 50,
       ease: "none",
     },
     "<"
