@@ -66,16 +66,16 @@ export default function Hero() {
                             alt=""
                             priority
                             className="object-cover select-none"
-                            height={900}
-                            width={1000}
+                            height={400}
+                            width={500}
                         />
                     </div>
-                    <div ref={bg2Ref} className="absolute right-[1%] md:right-[3%] top-[45%] opacity-0">
+                    <div ref={bg2Ref} className="absolute right-[-30%] md:right-[3%] top-[45%] opacity-0">
                         <Image
                             src="/second_bg.png"
                             alt=""
-                            height={900}
-                            width={1000}
+                            height={400}
+                            width={500}
                             priority
                             className="object-cover select-none"
                         />
@@ -97,12 +97,8 @@ export default function Hero() {
                     Crafted with care and brewed to perfection
                 </p>
 
-
-
-
-
                 {/* second text */}
-                <h1 ref={heading2Ref} className="absolute top-[5%] left-[10%]  md:right-[40%] text-[28px] md:text-[42px] font-medium tracking-widest text-black text-right max-w-[px] text-center opacity-0 leading-tight z-10">
+                <h1 ref={heading2Ref} className="absolute top-[20%] md:top-[5%] left-[10%]  md:left-[10%] text-[28px] md:text-[42px] font-medium tracking-widest text-black text-right max-w-[px] text-center opacity-0 leading-tight z-10">
                     Beyond a beverage,<br />it's nature's symphony
                 </h1>
 

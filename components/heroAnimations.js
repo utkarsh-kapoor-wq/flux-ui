@@ -38,8 +38,8 @@ export function initHeroAnimations(refs) {
     { rotate: -12, scale: 1.5, x: -100, ease: "none" }
   );
   tl.to(bg1Ref.current , {
-    rotate: -19,
-    xPercent : 10,
+    rotate: -15,
+    xPercent : 20,
     opacity : 1 ,
     ease : "none"
   },"<")
@@ -80,7 +80,7 @@ export function initHeroAnimations(refs) {
     ease :"none"
   },"<").to(bg2Ref.current , { 
     opacity : 1 , 
-    xPercent : -20 , 
+    xPercent : -90 , 
     ease : "none"
   },"<")
  
@@ -145,8 +145,6 @@ export function initGridAnimations(refs) {
     col4Ref,
     col5Ref,
     col6Ref,
-    rest1,
-    rest2,
   } = refs;
 
   const gridTl = gsap.timeline({
